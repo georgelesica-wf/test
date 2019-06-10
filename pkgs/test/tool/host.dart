@@ -182,7 +182,7 @@ MultiChannel _connectToServer() {
 ///
 /// [id] identifies the suite loaded in this iframe.
 StreamChannel _connectToIframe(String url, int id) {
-  var iframe = IFrameElement();
+  var iframe = IFrameElement()..setAttribute('allow', 'execution-while-out-of-viewport execution-while-not-rendered');
   _iframes[id] = iframe;
   iframe.src = url;
   document.body.children.add(iframe);
